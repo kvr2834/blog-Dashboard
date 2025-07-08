@@ -23,28 +23,28 @@ function Page() {
     };
 
     const submitHandler = async (e) => {
-    e.preventDefault();
+        e.preventDefault();
 
 
-    const formData = new FormData();
-    formData.append('title', data.title);
-    formData.append('author', data.author);
-    formData.append('authorImg', data.authorImg);
-    formData.append('description', data.description);
-    formData.append('category', data.category);
+        const formData = new FormData();
+        formData.append('title', data.title);
+        formData.append('author', data.author);
+        formData.append('authorImg', data.authorImg);
+        formData.append('description', data.description);
+        formData.append('category', data.category);
 
-    try {
-        const response = await axios.post('/api/blog', formData);
-        if (response.data.success) {
-            toast.success(response.data.msg || 'Blog submitted!');
-        } else {
-            toast.error('Error submitting blog');
+        try {
+            const response = await axios.post('/api/blog', formData);
+            if (response.data.success) {
+                toast.success(response.data.msg || 'Blog submitted!');
+            } else {
+                toast.error('Error submitting blog');
+            }
+        } catch (err) {
+            toast.error('Something went wrong');
+            console.error(err);
         }
-    } catch (err) {
-        toast.error('Something went wrong');
-        console.error(err);
-    }
-};
+    };
 
 
     return (
@@ -54,15 +54,17 @@ function Page() {
         >
             <ToastContainer theme='dark' />
             <label htmlFor='image'>
-                <div className='flex-col items-center'>
-                    <p className='mb-2 mt-[-20px]'>Upload Thumbnail : </p>
-                <Image
-                    src={image ? URL.createObjectURL(image) : assets.upload_area}
-                    alt='Upload Thumbnail'
-                    width={200}
-                    height={100}
-                    className='h-auto w-[200px]'
-                />
+                <div className='flex justify-center items-center'>
+                    <div className='flex-col items-center'>
+                        <p className='mb-2 mt-[-20px]'>Image Upload Unavailable</p>
+                        <Image
+                            src={image ? URL.createObjectURL(image) : assets.upload_area}
+                            alt='Upload Thumbnail'
+                            width={200}
+                            height={100}
+                            className='h-auto w-[200px]'
+                        />
+                    </div>
                 </div>
             </label>
 
