@@ -49,13 +49,14 @@ blog-Dashboard/
 └── next.config.js
 ```
 
-
+```
 🔐 .env.local Example
 bash
 Copy
 Edit
 MONGO_URI=mongodb+srv://your_username:your_password@cluster0.mongodb.net/blogdb
 ⚠️ Do not share or commit .env.local. It's already added to .gitignore.
+```
 
 ▶️ Running the Project Locally
 bash
@@ -73,6 +74,7 @@ npm run dev
 Open your browser at: http://localhost:3000
 
 🧪 Sample Blog Data
+```
 json
 Copy
 Edit
@@ -85,6 +87,7 @@ Edit
   "image": "/timestamp_filename.jpg",
   "date": "2025-07-08T10:30:00Z"
 }
+```
 
 📌 Future Enhancements
  Add Edit Blog feature
