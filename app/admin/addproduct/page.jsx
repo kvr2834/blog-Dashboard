@@ -23,33 +23,29 @@ function Page() {
     };
 
     const submitHandler = async (e) => {
-        e.preventDefault();
+    e.preventDefault();
 
-        if (!image) {
-            toast.error('Please upload an image');
-            return;
+
+    const formData = new FormData();
+    formData.append('title', data.title);
+    formData.append('author', data.author);
+    formData.append('authorImg', data.authorImg);
+    formData.append('description', data.description);
+    formData.append('category', data.category);
+
+    try {
+        const response = await axios.post('/api/blog', formData);
+        if (response.data.success) {
+            toast.success(response.data.msg || 'Blog submitted!');
+        } else {
+            toast.error('Error submitting blog');
         }
+    } catch (err) {
+        toast.error('Something went wrong');
+        console.error(err);
+    }
+};
 
-        const formData = new FormData();
-        formData.append('title', data.title);
-        formData.append('author', data.author);
-        formData.append('authorImg', data.authorImg);
-        formData.append('description', data.description);
-        formData.append('category', data.category);
-        formData.append('image', image);
-
-        try {
-            const response = await axios.post('/api/blog', formData);
-            if (response.data.success) {
-                toast.success(response.data.msg || 'Blog submitted!');
-            } else {
-                toast.error('Error submitting blog');
-            }
-        } catch (err) {
-            toast.error('Something went wrong');
-            console.error(err);
-        }
-    };
 
     return (
         <form
@@ -69,13 +65,6 @@ function Page() {
                 />
                 </div>
             </label>
-            <input
-                type='file'
-                hidden
-                id='image'
-                accept='image/*'
-                onChange={(e) => setImage(e.target.files[0])}
-            />
 
             <div className='flex gap-4 flex-col w-full mx-auto'>
                 <p>Title:</p>

@@ -33,24 +33,13 @@ export async function POST(request) {
     await connectDB();
 
     const formData = await request.formData();
-    const image = formData.get("image");
-
-    if (!image || !image.name) {
-      return NextResponse.json({ msg: "Image missing" }, { status: 400 });
-    }
-
-    const buffer = Buffer.from(await image.arrayBuffer());
-    const fileName = `${Date.now()}_${image.name}`;
-    const path = `./public/${fileName}`;
-
-    await writeFile(path, buffer); // Save image
 
     const blogData = {
       title: formData.get("title") || "",
       description: formData.get("description") || "",
       category: formData.get("category") || "",
       author: formData.get("author") || "",
-      image: `/${fileName}`, // URL for front-end
+      image: "/1751908762095_blog_pic_15.png", 
       authorImg: formData.get("authorImg") || "",
       date: new Date(),
     };
@@ -66,6 +55,7 @@ export async function POST(request) {
     return NextResponse.json({ msg: "Internal Server Error" }, { status: 500 });
   }
 }
+
 
 // DELETE: Delete blog by ID and its image
 export async function DELETE(request) {
