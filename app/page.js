@@ -9,11 +9,14 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default function Home() {
   return (
-    <div>
-      <ToastContainer theme="dark"/>
-      <Header/>
-      <Bloglist/>
-      <Footer/>
+    <div className="min-h-screen flex flex-col">
+      <ToastContainer theme="dark" />
+      <Header />
+      <div className="flex-grow">
+        <Bloglist />
+      </div>
+      <Footer />
     </div>
+
   );
 }
