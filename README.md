@@ -49,8 +49,8 @@ blog-Dashboard/
 └── next.config.js
 ```
 
-```
 🔐 .env.local Example
+```
 Edit
 MONGO_URI=mongodb+srv://your_username:your_password@cluster0.mongodb.net/blogdb
 ⚠️ Do not share or commit .env.local. It's already added to .gitignore.
