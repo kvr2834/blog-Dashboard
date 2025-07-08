@@ -23,22 +23,32 @@ A full-stack blog dashboard built with **Next.js 14 App Router**, **MongoDB**, a
 
 ---
 
-## 📁 Folder Structure
-blog-dashboard/
-│
+### 📁 Folder Structure
+
+```bash
+blog-Dashboard/
 ├── app/
-│ ├── api/blog/route.js # Backend API (GET, POST, DELETE)
-│ └── dashboard/ # Blog dashboard UI
-│
+│   ├── api/
+│   │   └── blog/
+│   │       └── route.js
+│   ├── layout.js
+│   └── page.js
 ├── lib/
-│ ├── config/db.js # MongoDB connection
-│ └── models/BlogModel.js # Mongoose blog schema
-│
-├── public/ # Uploaded blog images
-├── .env.local # MONGO_URI here (not committed)
-├── .gitignore # Ignores /public uploads, node_modules, .env.local
+│   ├── config/
+│   │   └── db.js
+│   └── models/
+│       └── BlogModel.js
+├── public/
+│   └── (Uploaded images will be stored here)
+├── styles/
+│   └── globals.css
+├── .env.local
+├── .gitignore
+├── package.json
 ├── README.md
-└── package.json
+└── next.config.js
+```
+
 
 🔐 .env.local Example
 bash
