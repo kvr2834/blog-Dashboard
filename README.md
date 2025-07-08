@@ -52,7 +52,7 @@ blog-Dashboard/
 🔐 .env.local Example
 ```
 Edit
-MONGO_URI=mongodb+srv://your_username:your_password@cluster0.mongodb.net/blogdb
+MONGO_URI=MongoId
 ⚠️ Do not share or commit .env.local. It's already added to .gitignore.
 ```
 
