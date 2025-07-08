@@ -4,7 +4,7 @@ import { writeFile } from "fs/promises";
 import BlogModel from "@/lib/models/BlogModel";
 import fs from "fs";
 
-// ✅ GET: Fetch all blogs or one by ID
+// GET: Fetch all blogs or one by ID
 export async function GET(request) {
   try {
     await connectDB();
@@ -27,7 +27,7 @@ export async function GET(request) {
   }
 }
 
-// ✅ POST: Create a new blog with image upload
+// POST: Create a new blog with image upload
 export async function POST(request) {
   try {
     await connectDB();
@@ -67,7 +67,7 @@ export async function POST(request) {
   }
 }
 
-// ✅ DELETE: Delete blog by ID and its image
+// DELETE: Delete blog by ID and its image
 export async function DELETE(request) {
   try {
     await connectDB();

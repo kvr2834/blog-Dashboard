@@ -8,7 +8,7 @@ import { useParams } from 'next/navigation';
 
 export default function Page() {
     const [data, setData] = useState(null);
-    const { id } = useParams(); // ✅ Safe way to get dynamic route param in client
+    const { id } = useParams(); // Safe way to get dynamic route param in client
 
 
     const fetchBlog = async () => {
